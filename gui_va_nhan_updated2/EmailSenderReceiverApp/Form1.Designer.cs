@@ -1,16 +1,22 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace EmailSenderReceiverApp
 {
     partial class Form1
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.TextBox txtTo;
-        private System.Windows.Forms.TextBox txtSubject;
-        private System.Windows.Forms.TextBox txtBody;
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Button btnReceive;
-        private System.Windows.Forms.ListBox lstInbox;
+        private TextBox txtFrom;
+        private TextBox txtPassword;
+        private TextBox txtTo;
+        private TextBox txtSubject;
+        private TextBox txtBody;
+        private Button btnSend;
+        private Button btnReceive;
+        private Button btnAttach;
+        private ListBox lstInbox;
+        private TextBox txtEmailDetail;
 
         protected override void Dispose(bool disposing)
         {
@@ -18,80 +24,112 @@ namespace EmailSenderReceiverApp
             base.Dispose(disposing);
         }
 
-        private System.Windows.Forms.TextBox txtAttachment;
-        private System.Windows.Forms.Button btnBrowse;
-
         private void InitializeComponent()
         {
-            this.txtFrom = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtTo = new System.Windows.Forms.TextBox();
-            this.txtSubject = new System.Windows.Forms.TextBox();
-            this.txtBody = new System.Windows.Forms.TextBox();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnReceive = new System.Windows.Forms.Button();
-            this.lstInbox = new System.Windows.Forms.ListBox();
-            this.SuspendLayout();
-            // 
+            components = new System.ComponentModel.Container();
+
+            Font defaultFont = new Font("Segoe UI", 10F);
+            int margin = 10;
+            int width = 360;
+
+            txtFrom = new TextBox();
+            txtPassword = new TextBox();
+            txtTo = new TextBox();
+            txtSubject = new TextBox();
+            txtBody = new TextBox();
+            btnSend = new Button();
+            btnAttach = new Button();
+            btnReceive = new Button();
+            lstInbox = new ListBox();
+            txtEmailDetail = new TextBox();
+
             // txtFrom
-            this.txtFrom.Location = new System.Drawing.Point(12, 12);
-            this.txtFrom.Size = new System.Drawing.Size(360, 23);
-            this.txtFrom.PlaceholderText = "Email của bạn";
-            // 
+            txtFrom.Font = defaultFont;
+            txtFrom.Location = new Point(margin, 20);
+            txtFrom.Size = new Size(width, 27);
+            txtFrom.PlaceholderText = "Địa chỉ Gmail của bạn";
+            txtFrom.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
             // txtPassword
-            this.txtPassword.Location = new System.Drawing.Point(12, 41);
-            this.txtPassword.Size = new System.Drawing.Size(360, 23);
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.PlaceholderText = "Mật khẩu ứng dụng";
-            // 
+            txtPassword.Font = defaultFont;
+            txtPassword.Location = new Point(margin, 55);
+            txtPassword.Size = new Size(width, 27);
+            txtPassword.PasswordChar = '*';
+            txtPassword.PlaceholderText = "Mật khẩu ứng dụng Gmail";
+            txtPassword.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
             // txtTo
-            this.txtTo.Location = new System.Drawing.Point(12, 70);
-            this.txtTo.Size = new System.Drawing.Size(360, 23);
-            this.txtTo.PlaceholderText = "Người nhận";
-            // 
+            txtTo.Font = defaultFont;
+            txtTo.Location = new Point(margin, 90);
+            txtTo.Size = new Size(width, 27);
+            txtTo.PlaceholderText = "Địa chỉ người nhận";
+            txtTo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
             // txtSubject
-            this.txtSubject.Location = new System.Drawing.Point(12, 99);
-            this.txtSubject.Size = new System.Drawing.Size(360, 23);
-            this.txtSubject.PlaceholderText = "Tiêu đề";
-            // 
+            txtSubject.Font = defaultFont;
+            txtSubject.Location = new Point(margin, 125);
+            txtSubject.Size = new Size(width, 27);
+            txtSubject.PlaceholderText = "Tiêu đề email";
+            txtSubject.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
             // txtBody
-            this.txtBody.Location = new System.Drawing.Point(12, 128);
-            this.txtBody.Multiline = true;
-            this.txtBody.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBody.Size = new System.Drawing.Size(360, 100);
-            this.txtBody.PlaceholderText = "Nội dung email...";
-            // 
+            txtBody.Font = defaultFont;
+            txtBody.Location = new Point(margin, 160);
+            txtBody.Size = new Size(width, 100);
+            txtBody.Multiline = true;
+            txtBody.ScrollBars = ScrollBars.Vertical;
+            txtBody.PlaceholderText = "Soạn nội dung email...";
+            txtBody.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+
+            // btnAttach
+            btnAttach.Font = defaultFont;
+            btnAttach.Location = new Point(margin, 270);
+            btnAttach.Size = new Size(130, 30);
+            btnAttach.Text = "📎 Đính kèm";
+            btnAttach.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            btnAttach.Click += new EventHandler(this.btnAttach_Click);
+
             // btnSend
-            this.btnSend.Location = new System.Drawing.Point(297, 234);
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
-            this.btnSend.Text = "Gửi";
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
+            btnSend.Font = defaultFont;
+            btnSend.Location = new Point(150, 270);
+            btnSend.Size = new Size(100, 30);
+            btnSend.Text = "✉️ Gửi";
+            btnSend.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSend.Click += new EventHandler(this.btnSend_Click);
+
             // btnReceive
-            this.btnReceive.Location = new System.Drawing.Point(12, 263);
-            this.btnReceive.Size = new System.Drawing.Size(150, 23);
-            this.btnReceive.Text = "Nhận Email (IMAP)";
-            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
-            // 
+            btnReceive.Font = defaultFont;
+            btnReceive.Location = new Point(260, 270);
+            btnReceive.Size = new Size(110, 30);
+            btnReceive.Text = "📥 Nhận";
+            btnReceive.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnReceive.Click += new EventHandler(this.btnReceive_Click);
+
             // lstInbox
-            this.lstInbox.FormattingEnabled = true;
-            this.lstInbox.ItemHeight = 15;
-            this.lstInbox.Location = new System.Drawing.Point(12, 292);
-            this.lstInbox.Size = new System.Drawing.Size(360, 124);
-            // 
-            // Form1
-            this.ClientSize = new System.Drawing.Size(384, 431);
-            this.Controls.Add(this.lstInbox);
-            this.Controls.Add(this.btnReceive);
-            this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.txtBody);
-            this.Controls.Add(this.txtSubject);
-            this.Controls.Add(this.txtTo);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtFrom);
-            this.Text = "Gửi & Nhận Email";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            lstInbox.Font = new Font("Segoe UI", 9F);
+            lstInbox.Location = new Point(margin, 310);
+            lstInbox.Size = new Size(width, 100);
+            lstInbox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lstInbox.SelectedIndexChanged += new EventHandler(this.lstInbox_SelectedIndexChanged);
+
+            // txtEmailDetail
+            txtEmailDetail.Font = new Font("Segoe UI", 9F);
+            txtEmailDetail.Location = new Point(margin, 420);
+            txtEmailDetail.Size = new Size(width, 120);
+            txtEmailDetail.Multiline = true;
+            txtEmailDetail.ReadOnly = true;
+            txtEmailDetail.ScrollBars = ScrollBars.Vertical;
+            txtEmailDetail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
+
+            // Form
+            this.Text = "Gmail Style - Gửi & Nhận Email";
+            this.ClientSize = new Size(400, 580);
+            this.MinimumSize = new Size(400, 580);
+            this.Controls.AddRange(new Control[] {
+                txtFrom, txtPassword, txtTo, txtSubject, txtBody,
+                btnAttach, btnSend, btnReceive,
+                lstInbox, txtEmailDetail
+            });
         }
     }
 }
