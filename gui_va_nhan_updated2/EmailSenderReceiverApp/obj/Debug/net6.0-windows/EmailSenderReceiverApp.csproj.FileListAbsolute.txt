@@ -1,0 +1,5 @@
+D:\laptrinhmang\gui_va_nhan_updated\EmailSenderReceiverApp\obj\Debug\net6.0-windows\EmailSenderReceiverApp.csproj.AssemblyReference.cache
+D:\laptrinhmang\gui_va_nhan_updated\EmailSenderReceiverApp\obj\Debug\net6.0-windows\EmailSenderReceiverApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\laptrinhmang\gui_va_nhan_updated\EmailSenderReceiverApp\obj\Debug\net6.0-windows\EmailSenderReceiverApp.AssemblyInfoInputs.cache
+D:\laptrinhmang\gui_va_nhan_updated\EmailSenderReceiverApp\obj\Debug\net6.0-windows\EmailSenderReceiverApp.AssemblyInfo.cs
+D:\laptrinhmang\gui_va_nhan_updated\EmailSenderReceiverApp\obj\Debug\net6.0-windows\EmailSenderReceiverApp.csproj.CoreCompileInputs.cache
